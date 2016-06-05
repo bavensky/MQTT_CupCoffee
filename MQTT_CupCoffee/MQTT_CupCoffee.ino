@@ -4,7 +4,9 @@
 #include <ArduinoJson.h>
 #include "max6675.h"
 
+#define LED 2
 #define MOTOR 16
+
 #define KDO 12
 #define KCS 15
 #define KCLK 14
@@ -26,7 +28,8 @@ MqttConnector *mqtt;
 
 /* WIFI INFO */
 #ifndef WIFI_SSID
-  #define WIFI_SSID        "ESPERT-002"
+//  #define WIFI_SSID        "ESPERT-002"
+  #define WIFI_SSID        "@ESPertAP_001"
   #define WIFI_PASSWORD    "espertap"
 #endif
 
@@ -40,6 +43,7 @@ void init_hardware()
   Serial.begin(115200);
   delay(10);
   pinMode(MOTOR, OUTPUT);
+  pinMode(LED, OUTPUT);
   Serial.println();
   Serial.println("Serial port initialized.");
 }

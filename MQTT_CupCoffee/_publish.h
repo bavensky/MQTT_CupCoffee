@@ -7,7 +7,8 @@ MqttConnector::prepare_data_hook_t on_prepare_data =
 
     JsonObject& data = (*root)["d"];
     JsonObject& info = (*root)["info"];
-
+    digitalWrite(LED, LOW);
     data["myName"] = DEVICE_NAME;
     data["temp"] = thermocouple.readCelsius();
+    digitalWrite(LED, HIGH);
 };
